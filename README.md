@@ -6,9 +6,9 @@ Author: J G
 
 lab 0
 
-min-max normalization
+min-max normalization \
 standardization
 
-of dataset variables
+of dataset variables \
 (matrix columns, data frames)
 
