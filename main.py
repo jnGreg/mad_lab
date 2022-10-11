@@ -56,26 +56,24 @@ def min_max(sample_data) -> [[]]:
     # Takes given array, returns array normalized with min max method
     # min max method: (value - min) / (max - min)
     mm_norm = []
-    transposed_data = sample_data.transpose()
-    for col in transposed_data:
-        mm_col = []
-        [mm_col.append((value-min(col))/(max(col)-min(col))) for value in col]
-        mm_norm.append(mm_col)
+    for row in sample_data:
+        mm_row = []
+        [mm_row.append((value-min(row))/(max(row)-min(row))) for value in row]
+        mm_norm.append(mm_row)
     mm_norm = np.array(mm_norm)
-    return mm_norm.transpose()
+    return mm_norm
 
 
 def standardization(sample_data) -> [[]]:
     # Takes given array, returns array normalized with standardization method
     # standardization method: value - mean / std
     std_norm = []
-    transposed_data = sample_data.transpose()
-    for col in transposed_data:
-        std_col = []
-        [std_col.append((value-np.mean(col))/np.std(col)) for value in col]
-        std_norm.append(std_col)
+    for row in sample_data:
+        std_row = []
+        [std_row.append((value-np.mean(row))/np.std(row)) for value in row]
+        std_norm.append(std_row)
     std_norm = np.array(std_norm)
-    return std_norm.transpose()
+    return std_norm
 
 
 def main():
