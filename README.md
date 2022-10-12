@@ -4,11 +4,7 @@ UE 22/23 winter
 
 Author: J G
 
-lab 0
+lab 1
 
-min-max normalization \
-standardization
-
-of dataset variables \
-(matrix columns, data frames)
+what is the optimal number of crayons to reproduce the photo 'pencils.jpg'
 
