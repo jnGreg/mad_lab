@@ -66,17 +66,20 @@ def lab():
     plt.imshow(most4)
     plt.axis('off')
 
+    km = KMeans(n_clusters=5, random_state=0).fit(most_flat)
+    most_flat4 = most_flat.copy()
+
+    for i in np.unique(km.labels_):
+        most_flat4[km.labels_ == i, :] = km.cluster_centers_[i]
+    most4 = most_flat4.reshape(most.shape)
+    plt.imshow(most4)
+
 
 def prepare_sample_data() -> [[]]:
     # Simple sample array of [10 to 20] by [10 to 20] objects with a value from 0 to 1.
     sample_data = np.random.rand(np.random.randint(10, 21), np.random.randint(10, 21))
     return sample_data
 
-
-def prepare_sample_data() -> [[]]:
-    # Simple sample array of [10 to 20] by [10 to 20] objects with a value from 0 to 1.
-    sample_data = np.random.rand(np.random.randint(10, 21), np.random.randint(10, 21))
-    return sample_data
 
 
 def min_max(sample_data) -> [[]]:
