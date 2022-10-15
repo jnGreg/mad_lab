@@ -41,9 +41,36 @@ def lab():
 
     plt.scatter(km.cluster_centers_[:, 0], km.cluster_centers_[:, 1], c="red")
     plt.show()
-    # most = plt.imread('most.jpg', format='jpg')
-    # plt.imshow(most)
-    # plt.axis('off')
+
+    most = plt.imread('most.jpg', format='jpg')
+    plt.imshow(most)
+    plt.axis('off')
+
+    # most.shape
+    # most_flat = most.reshape(427*640, 3)
+    # most_flat = most.reshape(most.shape[0]*most.shape[1], 3)
+    most_flat = most.reshape(-1, 3)
+
+    km = KMeans(n_clusters=4, random_state=0).fit(most_flat)
+
+    km.labels_
+    np.unique(km.labels_)
+
+    km.cluster_centers_
+
+    most_flat4 = most_flat.copy()
+    for i in np.unique(km.labels_):
+        most_flat4[km.labels_ == i, :] = km.cluster_centers_[i]
+
+    most4 = most_flat4.reshape(most.shape)
+    plt.imshow(most4)
+    plt.axis('off')
+
+
+def prepare_sample_data() -> [[]]:
+    # Simple sample array of [10 to 20] by [10 to 20] objects with a value from 0 to 1.
+    sample_data = np.random.rand(np.random.randint(10, 21), np.random.randint(10, 21))
+    return sample_data
 
 
 def prepare_sample_data() -> [[]]:
