@@ -14,13 +14,12 @@ Charts:
 
 ![Silhouette plot](silhouette.jpg)
 
-Optimal number of crayons:
-
-K=7
+Optimal number of crayons: <br>
+K=7 <br>
 ![7](7.jpg)
-
-K=10
+<br>
+K=10<br>
 ![10](10.jpg)
-
-Original picture:
+<br>
+Original picture:<br>
 ![Pencils](pencils.jpg)
