@@ -48,8 +48,36 @@ def scree_plot(flat_image):  # Wykres osypiska
         klastrów (ich liczba wynosić może od 5 do 10) """
 
 
+def silhouette_index(flat_image):  # Indeks silhouette
+    ks = range(2, 12)
+    silhouettes = []
+
+    for k in ks:
+        km = KMeans(n_clusters=k).fit(flat_image)
+        silhouettes.append(silhouette_score(flat_image, km.predict(flat_image)))
+
+    silhouettes_df = pd.DataFrame({'K': ks,
+                                   'Silhouette': silhouettes})
+
+    g = (ggplot(silhouettes_df, aes(x='K', y='Silhouette')) +
+         geom_point() + geom_line() +
+         scale_x_continuous(breaks=ks) +
+         theme_minimal() +
+         labs(title="Silhouettes for subsequent K"))
+    print(g)
+    """ Zauważalny spadek wartości indeksu silhouette 
+        ma miejsce dla K = 8, tym samym optymalna liczba
+        klastrów wynosić powinna nie więcej, niż 7. """
+
+
+def optimal_clusters_number():
+
+
+
 def main():
-    scree_plot(read_image('pencils.jpg'))
+    # scree_plot(read_image('pencils.jpg'))
+    # silhouette_index(read_image('pencils.jpg'))
+
 
 
 if __name__ == "__main__":
