@@ -8,3 +8,8 @@ lab 1
 
 what is the optimal number of crayons to reproduce the photo 'pencils.jpg'
 
+Charts:
+
+![Scree plot](scree.jpg)
+
+![Silhouette plot](silhouette.jpg)
