@@ -95,8 +95,8 @@ def main():
     # silhouette_index(flat_image)
     image = plt.imread(image_path, format='jpg')
 
-    for n in range(3, 8):
-        optimal_clusters_number(image.shape, flat_image, n)
+    #for n in range(3, 8):
+        #optimal_clusters_number(image.shape, flat_image, n)
 
     """ Ponieważ celem zadania jest odwzorowanie obrazka
         przedstawiającego kolorowe kredki,
@@ -110,10 +110,10 @@ def main():
       zauważam, że choć ok. 75% kredek jest właściwego koloru,
       warto spróbować jeszcze wyższej liczby klastrów. """
 
-    for n in range(7, 11):
-        optimal_clusters_number(image.shape, flat_image, n)
+    #for n in range(7, 11):
+        #optimal_clusters_number(image.shape, flat_image, n)
 
-    """ Dla K = 7 oraz K = 8 różnica jest praktycznie zauważalna, dla wyższych K
+    """ Dla K = 7 oraz K = 8 różnica jest praktycznie niezauważalna, dla wyższych K
     następuje jednak zauważalne polepszenie odwzorowania zdjęcia, a za optymalną liczbę
     klastrów uznaję 10, ponieważ dopiero od tej liczby ostatnia para kredek 
     (sąsiadujące w lewym górnym rogu) jest rozróżnialna oraz posiadają one adekwatne barwy.
